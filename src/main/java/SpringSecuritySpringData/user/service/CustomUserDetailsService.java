@@ -30,6 +30,9 @@ public class CustomUserDetailsService implements UserDetailsService {
                 return new SimpleGrantedAuthority("ROLE_"+r.getRole());
             }).collect(Collectors.toList());
 
+            System.out.println(user.get().getUsername());
+            System.out.println(user.get().getPassword());
+
              usr = new org.springframework.security.core.userdetails.User(
                     user.get().getUsername(), user.get().getPassword(), grantedAuthorities);
 
